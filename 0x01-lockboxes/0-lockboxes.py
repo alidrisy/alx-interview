@@ -9,7 +9,6 @@ def canUnlockAll(boxes):
     boxes[0].append("open")
     x = 0
     while x < 2:
-        x = 0
         for i in range(len(boxes)):
             if "open" in boxes[i]:
                 for k in boxes[i]:
