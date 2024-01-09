@@ -7,7 +7,8 @@ def canUnlockAll(boxes):
     if len(boxes[0]) == 0:
         return False
     boxes[0].append("open")
-    while True:
+    x = 0
+    while x < 2:
         x = 0
         for i in range(len(boxes)):
             if "open" in boxes[i]:
@@ -15,9 +16,7 @@ def canUnlockAll(boxes):
                     if type(k) is int and k < len(boxes) and k != i and\
                             "open" not in boxes[k]:
                         boxes[k].append("open")
-                        x = 1
-        if x == 0:
-            break
+            x += 1
     for i in range(len(boxes)):
         if "open" not in boxes[i]:
             return False
