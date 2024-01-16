@@ -7,6 +7,8 @@ def minOperations(n):
     copy = 1
     step = 0
     num = 0
+    if n == 0 or n == 1:
+        return 0
     while True:
         if num > n:
             return 0
