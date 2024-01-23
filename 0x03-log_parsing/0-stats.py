@@ -9,7 +9,7 @@ r"\"GET /projects/260 HTTP/1.1\" "
 r"(?P<status_code>\d{3}) (?P<file_size>\d+)$"
 
 
-i = 1
+i = 0
 dict_autput = {}
 file_size = 0
 try:
@@ -29,5 +29,5 @@ try:
                 print(f"{k}: {v}")
 except KeyboardInterrupt:
     print(f"File size: {file_size}")
-    for k, v in dict_autput.items():
+    for k, v in sorted(dict_autput.items()):
         print(f"{k}: {v}")
