@@ -27,7 +27,7 @@ try:
             print(f"File size: {file_size}")
             for k, v in sorted(dict_autput.items()):
                 print(f"{k}: {v}")
-except KeyboardInterrupt:
+finally:
     print(f"File size: {file_size}")
     for k, v in sorted(dict_autput.items()):
         print(f"{k}: {v}")
