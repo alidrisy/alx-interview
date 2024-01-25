@@ -20,7 +20,7 @@ try:
             statu = line.split()[-2]
             if statu in dict_autput:
                 dict_autput[status] += 1
-            else if statu in ststus:
+            elif statu in ststus:
                 dict_autput[status] = 1
             i += 1
             if i % 10 == 0:
