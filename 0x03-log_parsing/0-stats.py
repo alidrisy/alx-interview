@@ -29,6 +29,5 @@ if __name__ == '__main__':
             i += 1
             if i % 10 == 0:
                 print_all()
-        print_all()
     finally:
         print_all()
