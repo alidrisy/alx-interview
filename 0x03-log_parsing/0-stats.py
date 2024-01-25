@@ -4,7 +4,7 @@ from sys import stdin
 import re
 
 
-status = ["200", "301", "400", "401", "403", "404", "405", "500"]
+status = [200, 301, 400, 401, 403, 404, 405, 500]
 i = 0
 dict_autput = {}
 file_size = 0
@@ -19,14 +19,20 @@ def print_all():
 if __name__ == '__main__':
     try:
         for line in stdin:
-            if (line.split()[-1]).isdigit():
-                file_size += int(line.split()[-1])
-            statu = line.split()[-2]
-            if statu in dict_autput:
-                dict_autput[statu] += 1
-            elif statu.isdigit() and statu in status:
-                dict_autput[statu] = 1
             i += 1
+            try:
+                file_size += int(line.split()[-1])
+            except Exception:
+                pass
+            try:
+                statu = int(line.split()[-2])
+                if statu in dict_autput:
+                    dict_autput[statu] += 1
+                elif statu in status:
+                    dict_autput[statu] = 1
+            except Exception:
+                pass
+
             if i % 10 == 0:
                 print_all()
     finally:
