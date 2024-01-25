@@ -24,10 +24,10 @@ if __name__ == '__main__':
                     dict_autput[statu] = 1
                 i += 1
                 if i % 10 == 0:
-                    print(f"File size: {file_size}")
+                    print("File size: {}".format(file_size))
                     for k, v in sorted(dict_autput.items()):
-                        print(f"{k}: {v}")
+                        print("{}: {}".format(k, v))
     finally:
-        print(f"File size: {file_size}")
+        print("File size: {}".format(file_size))
         for k, v in sorted(dict_autput.items()):
-            print(f"{k}: {v}")
+            print("{}: {}".format(k, v))
