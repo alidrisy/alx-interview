@@ -24,7 +24,7 @@ try:
                 dict_autput[status] = 1
             i += 1
             if i % 10 == 0:
-                print(f"File size: {file_size}")7
+                print(f"File size: {file_size}")
                 for k, v in sorted(dict_autput.items()):
                     print(f"{k}: {v}")
 finally:
