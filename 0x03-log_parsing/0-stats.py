@@ -8,7 +8,7 @@ pattern =\
 r"\"GET /projects/260 HTTP/1.1\" "
 r"(?P<status_code>\d{3}) (?P<file_size>\d+)$"
 
-
+status = ["200", "301", "400", "401", "403", "404", "405", "500"]
 i = 0
 dict_autput = {}
 file_size = 0
@@ -17,10 +17,10 @@ try:
         match = re.match(pattern, line)
         if match:
             file_size += int(line.split()[-1])
-            status = line.split()[-2]
-            if status in dict_autput:
+            statu = line.split()[-2]
+            if statu in dict_autput:
                 dict_autput[status] += 1
-            else:
+            else if statu in ststus:
                 dict_autput[status] = 1
             i += 1
             if i % 10 == 0:
