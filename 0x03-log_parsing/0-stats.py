@@ -4,18 +4,17 @@ from sys import stdin
 import re
 
 
-pattern = r"^\d+\.\d+\.\d+\.\d+ - \[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d+\] \"GET /projects/260 HTTP/1\.1\" \d+ \d+$"  # nopep8
-
-
 if __name__ == '__main__':
+    patern = re.compile(
+            r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3} - \[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}.\d+\] "GET /projects/260 HTTP/1.1" (.{3}) (\d+)')  # nopep8
     status = ["200", "301", "400", "401", "403", "404", "405", "500"]
     i = 0
     dict_autput = {}
     file_size = 0
     try:
         for line in stdin:
-            patern = re.compile(pattern)
-            if bool(patern.match(line)):
+            line = line.strip()
+            if (patern.fullmatch(line)):
                 file_size += int(line.split()[-1])
                 statu = line.split()[-2]
                 if statu in dict_autput:
