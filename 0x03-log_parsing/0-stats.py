@@ -23,7 +23,7 @@ if __name__ == '__main__':
                 statu = line.split()[-2]
                 if statu in dict_autput:
                     dict_autput[statu] += 1
-                elif statu in status:
+                elif statu.isdigit() and statu in status:
                     dict_autput[statu] = 1
                 i += 1
                 if i % 10 == 0:
