@@ -25,7 +25,7 @@ if __name__ == '__main__':
             line = line.strip()
             if (patern.fullmatch(line)):
                 if (line.split()[-1]).isdigit():
-                file_size += int(line.split()[-1])
+                    file_size += int(line.split()[-1])
                 statu = line.split()[-2]
                 if statu in dict_autput:
                     dict_autput[statu] += 1
