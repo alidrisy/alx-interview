@@ -4,6 +4,6 @@
 
 def validUTF8(data):
     """ determines if a given data set represents a valid UTF-8 encoding. """
-    if all(i < 128 for i in data):
+    if all(i < 256 for i in data):
         return True
     return False
