@@ -33,12 +33,12 @@ def is_safe(grid, y, x, n):
 
 def print_grid(grid, n):
     """ Print the solution """
-    print('[', end='')
+    solution = []
     for y in range(n):
         for x in range(n):
             if grid[y][x] == 1:
-                print([y, x], end='')
-    print(']')
+                solution.append([y, x])
+    print(solution)
 
 
 def solve(grid, y, n):
