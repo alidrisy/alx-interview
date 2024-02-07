@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ Model The N queens puzzle is the challenge of
 placing N non-attacking queens """
-from sys import argv
+import sys
 
 
 def is_safe(grid, y, x, n):
@@ -56,17 +56,17 @@ def solve(grid, y, n):
 
 
 if __name__ == "__main__":
-    if len(argv) != 2:
+    if len(sys.argv) != 2:
         print("Usage: nqueens N")
-        exit(1)
+        sys.exit(1)
     try:
-        n = int(argv[1])
+        n = int(sys.argv[1])
     except Exception:
         print("N must be a number")
-        exit(1)
+        sys.exit(1)
     if n < 4:
         print("N must be at least 4")
-        exit(1)
+        sys.exit(1)
 
     grid = []
     for i in range(n):
@@ -75,4 +75,4 @@ if __name__ == "__main__":
             num.append(0)
         grid.append(num)
 
-    grid = solve(grid, 0, n)
+    solve(grid, 0, n)
