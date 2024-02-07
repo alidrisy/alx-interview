@@ -6,8 +6,6 @@ import sys
 
 def is_safe(grid, y, x, n):
     """test wither its safe or not"""
-    if y == x:
-        return False
 
     for i in range(n):
         if grid[y][i] == 1:
@@ -64,15 +62,10 @@ if __name__ == "__main__":
     except Exception:
         print("N must be a number")
         sys.exit(1)
+
     if n < 4:
         print("N must be at least 4")
         sys.exit(1)
 
-    grid = []
-    for i in range(n):
-        num = []
-        for x in range(n):
-            num.append(0)
-        grid.append(num)
-
+    grid = [[0] * n for i in range(n)]
     solve(grid, 0, n)
