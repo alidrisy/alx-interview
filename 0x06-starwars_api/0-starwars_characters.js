@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/node
 // prints all characters of a Star Wars movie
 const request = require('request');
 
