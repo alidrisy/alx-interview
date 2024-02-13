@@ -19,7 +19,6 @@ request.get(url, (_req, resp) => {
   if (resp) {
     const body = JSON.parse(resp.body);
     const characters = body.characters;
-    console.log(characters);
     charRequest(characters, 0);
   }
 });
