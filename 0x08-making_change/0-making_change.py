@@ -11,7 +11,6 @@ def makeChange(coins, total):
     count = 0
 
     coins.sort(reverse=True)
-    print(coins)
     for coin in coins:
         if total <= 0:
             break
