@@ -2,7 +2,7 @@
 """ Prime Game """
 
 
-def SieveOfEratosthenes(n):
+def get_prime(n):
     """Return a list of  all primes smaller than or equal to n."""
     bool_prime = [True for i in range(n + 1)]
     p = 2
@@ -13,50 +13,32 @@ def SieveOfEratosthenes(n):
             for i in range(p * p, n + 1, p):
                 bool_prime[i] = False
         p += 1
-    prime = []
-    for p in range(1, n + 1):
+    prime = 0
+    for p in range(2, n + 1):
         if bool_prime[p]:
-            prime.append(p)
+            prime += 1
     return prime
 
 
 def isWinner(x, nums):
-    """Determine who the winner of the prime game."""
+    """Solves Prime Game"""
+    if not nums or x < 1:
+        return None
     ben = 0
     maria = 0
-    round = "maria"
-    i = 0
-
-    while x > 0:
-
-        prime = SieveOfEratosthenes(nums[i])
-
-        if len(prime) == 1 and i == len(nums) - 1:
-            if round == "maria":
-                round = "ben"
-                maria += 1
-            elif round == "ben":
-                round = "maria"
-                ben += 1
-
-        n = len(prime) - 1
-        for y in range(n, 0, -1):
-            if round == "maria":
-                round = "ben"
-                if y == 1:
-                    maria += 1
-                continue
-            elif round == "ben":
-                round = "maria"
-                if y == 1:
-                    ben += 1
-                continue
-        x -= 1
-        i += 1
-
-    if maria > ben:
-        return "maria"
-    elif ben > maria:
-        return "ben"
+    for num in nums:
+        prime = get_prime(num)
+        if prime % 2 == 0:
+            ben += 1
+        else:
+            maria += 1
+    if ben > maria:
+        return "Ben"
+    elif maria > ben:
+        return "Maria"
     else:
         return None
+
+
+print("Winner: {}".format(isWinner(5, [2, 5, 1, 4, 3])))
+print("Winner: {}".format(isWinner(3, [4, 5, 1])))
